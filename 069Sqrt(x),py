@@ -1,0 +1,13 @@
+class Solution(object):
+    def mySqrt(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        seq=1
+        while True:
+            old = seq
+            seq = 0.5*(x/seq+seq)
+            if abs(old - seq) < 0.5:
+                return int(seq)
+    #Newtown Method:define f(n)=n^2-x, then n(k+1) = n(k)-f(n(k))/f'(n(k))=0.5*(n(k)+x/n(k))

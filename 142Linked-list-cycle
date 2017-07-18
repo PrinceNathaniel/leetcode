@@ -1,0 +1,15 @@
+class Solution(object):
+    def detectCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        pin,pin2 = head, head
+        test = head
+        while pin2 and pin2.next:
+            pin, pin2 = pin.next, pin2.next.next
+            if pin is pin2:
+                while True:
+                    if test is pin2:
+                        return test
+                    test, pin2 = test.next, pin2.next
